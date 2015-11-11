@@ -1,6 +1,6 @@
 # Build with:
 #
-# docker build -t nlesc/xenon-slurm:2.6.5 .
+# docker build -t nlesc/xenon-slurm:14.11.9 .
 #
 # Run with:
 #
@@ -14,12 +14,13 @@
 FROM nlesc/xenon-phusion-base
 MAINTAINER Stefan Verhoeven "s.verhoeven@esciencecenter.nl"
 
-RUN apt-get update && apt-get install -y slurm-llnl && \
-apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
-mkdir /var/run/munge
+ENV SLURM_VERSION 14.11.9
+
+ADD build.sh /tmp/build.sh
+RUN sh /tmp/build.sh # && rm /tmp/build.sh
 
 ADD munge.key /etc/munge/munge.key
 ADD service /etc/service
-ADD slurm.conf /etc/slurm-llnl/slurm.conf
+ADD slurm.conf /etc/slurm/slurm.conf
 
 CMD ["/sbin/my_init"]
