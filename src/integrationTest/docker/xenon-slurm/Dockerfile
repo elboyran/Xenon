@@ -17,7 +17,7 @@ MAINTAINER Stefan Verhoeven "s.verhoeven@esciencecenter.nl"
 ENV SLURM_VERSION 14.11.9
 
 ADD build.sh /tmp/build.sh
-RUN sh /tmp/build.sh && rm /tmp/build.sh
+RUN sh /tmp/build.sh
 
 ADD munge.key /etc/munge/munge.key
 ADD service /etc/service
