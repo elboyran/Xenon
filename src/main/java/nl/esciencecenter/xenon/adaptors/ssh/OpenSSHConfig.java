@@ -33,7 +33,6 @@ import nl.esciencecenter.xenon.XenonException;
 import nl.esciencecenter.xenon.adaptors.scripting.ScriptingParser;
 
 import com.jcraft.jsch.ConfigRepository;
-import com.jcraft.jsch.ConfigRepository.Config;
 
 /**
  * This class implements ConfigRepository interface, and parses OpenSSH's
@@ -309,9 +308,17 @@ public class OpenSSHConfig implements ConfigRepository {
             return parsedTokens.toArray(new String[parsedTokens.size()]);
         }
 
-        public String getKey() { return key; }
-        public String getValue() { return value; }
-        public int getLineNumber() { return lineNumber; }
+        public String getKey() { 
+            return key; 
+        }
+        
+        public String getValue() { 
+            return value; 
+        }
+        
+        public int getLineNumber() { 
+            return lineNumber; 
+        }
 
         public String[] getValues() {
             return Arrays.copyOf(values, values.length);

@@ -53,6 +53,7 @@ dependencies {
     compile group: 'commons-net', name: 'commons-net', version: apacheCommonsNetVersion
     compile group: 'com.google.code.findbugs', name: 'findbugs', version: '2.0.2'
     compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.5'
+    compile group: 'com.hierynomus', name: 'sshj', version: '0.15.0'
 
     // Runtime dependencies
     runtime group: 'ch.qos.logback', name: 'logback-core', version: '1.0.11'
