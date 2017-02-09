@@ -1,0 +1,36 @@
+version: 1.0
+organisation: nlesc
+images:
+  xenon-alpine-base:
+    context: xenon-alpine-base
+    files:
+    - insecure-ssh-keys/
+    - ../resources/scripts/create_symlinks
+  xenon-ssh:
+    context: xenon-ssh
+    from: xenon-alpine-base
+  xenon-phusion-base:
+    context: xenon-phusion-base
+    files:
+    - insecure-ssh-keys/
+    - ../resources/scripts/create_symlinks
+  xenon-ftp:
+    context: xenon-ftp
+    from: xenon-phusion-base
+  xenon-torque:
+    context: xenon-torque
+    files:
+    - insecure-ssh-keys/
+    - ../resources/scripts/create_symlinks
+  xenon-slurm:
+    context: xenon-slurm
+    from: xenon-phusion-base
+  xenon-webdav:
+    context: xenon-webdav
+    from: xenon-alpine-base
+  xenon-gridengine:
+    context: xenon-gridengine
+    from: xenon-phusion-base
+  xenon-test:
+    context: .
+    from: xenon-phusion-base
